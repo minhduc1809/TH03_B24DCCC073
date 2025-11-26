@@ -10,38 +10,36 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
   if (totalPages <= 1) return null;
 
   return (
-    <nav className="mt-4">
-      <ul className="pagination justify-content-center">
-        <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
-          <button 
-            className="page-link" 
-            onClick={() => onPageChange(currentPage - 1)}
-          >
-            Trước
-          </button>
-        </li>
-        
-        {[...Array(totalPages)].map((_, index) => {
-            const pageNum = index + 1;
-            return (
-                <li key={pageNum} className={`page-item ${currentPage === pageNum ? 'active' : ''}`}>
-                    <button className="page-link" onClick={() => onPageChange(pageNum)}>
-                        {pageNum}
-                    </button>
-                </li>
-            )
-        })}
+    <div className="pagination">
+      <button 
+        className="page-btn" 
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
+        Trước
+      </button>
+      
+      {[...Array(totalPages)].map((_, index) => {
+          const pageNum = index + 1;
+          return (
+              <button 
+                  key={pageNum} 
+                  className={`page-btn ${currentPage === pageNum ? 'active' : ''}`}
+                  onClick={() => onPageChange(pageNum)}
+              >
+                  {pageNum}
+              </button>
+          )
+      })}
 
-        <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
-          <button 
-            className="page-link" 
-            onClick={() => onPageChange(currentPage + 1)}
-          >
-            Sau
-          </button>
-        </li>
-      </ul>
-    </nav>
+      <button 
+        className="page-btn" 
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+      >
+        Sau
+      </button>
+    </div>
   );
 };
 export default Pagination;

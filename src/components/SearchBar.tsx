@@ -7,15 +7,13 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ value, onChange }) => {
   return (
-    <div className="mb-3">
-      <input
-        type="text"
-        className="form-control"
-        placeholder="Tìm kiếm theo tên sản phẩm..."
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      />
-    </div>
+    <input
+      type="text"
+      placeholder="Tìm kiếm theo tên sản phẩm..."
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      style={{ width: '100%' }} 
+    />
   );
 };
 export default SearchBar;

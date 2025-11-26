@@ -14,10 +14,9 @@ const FilterBar: React.FC<FilterBarProps> = ({
   category, setCategory, minPrice, setMinPrice, maxPrice, setMaxPrice 
 }) => {
   return (
-    <div className="row g-3 mb-4">
-      <div className="col-md-4">
+    <div className="filters">
+      <div className="filter-item">
         <select 
-          className="form-select" 
           value={category} 
           onChange={(e) => setCategory(e.target.value as Category | '')}
         >
@@ -29,19 +28,17 @@ const FilterBar: React.FC<FilterBarProps> = ({
           <option value="Khác">Khác</option>
         </select>
       </div>
-      <div className="col-md-4">
+      <div className="filter-item">
         <input 
           type="number" 
-          className="form-control" 
           placeholder="Giá thấp nhất" 
           value={minPrice} 
           onChange={(e) => setMinPrice(e.target.value ? Number(e.target.value) : '')} 
         />
       </div>
-      <div className="col-md-4">
+      <div className="filter-item">
         <input 
           type="number" 
-          className="form-control" 
           placeholder="Giá cao nhất" 
           value={maxPrice} 
           onChange={(e) => setMaxPrice(e.target.value ? Number(e.target.value) : '')} 

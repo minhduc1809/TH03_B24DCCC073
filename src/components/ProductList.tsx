@@ -9,11 +9,16 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({ products, onDelete }) => {
   if (products.length === 0) {
-    return <div className="text-center mt-5">Không tìm thấy sản phẩm nào.</div>;
+    return (
+      <div className="empty-state">
+        <div className="empty-state-icon">📭</div>
+        <p>Không tìm thấy sản phẩm nào.</p>
+      </div>
+    );
   }
 
   return (
-    <div className="row">
+    <div className="products-grid">
       {products.map((product) => (
         <ProductCard 
           key={product.id} 

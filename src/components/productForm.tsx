@@ -33,97 +33,41 @@ const ProductForm: React.FC<Props> = ({ initialData, onSubmit, title }) => {
     navigate('/');
   };
 
-  const inputStyle = {
-    width: '100%',
-    padding: '12px 15px',
-    border: '2px solid #e2e8f0',
-    borderRadius: '10px',
-    fontSize: '1em',
-    transition: 'all 0.3s ease',
-    fontFamily: 'inherit',
-  } as React.CSSProperties;
-
-  const selectStyle = {
-    ...inputStyle,
-  };
-
-  const textareaStyle = {
-    ...inputStyle,
-    fontFamily: 'inherit',
-    resize: 'vertical',
-    minHeight: '120px',
-  } as React.CSSProperties;
-
-  const buttonStyle = {
-    padding: '12px 30px',
-    border: 'none',
-    borderRadius: '10px',
-    fontSize: '1em',
-    cursor: 'pointer',
-    fontWeight: 600,
-    transition: 'all 0.3s ease',
-  } as React.CSSProperties;
-
-  const submitButtonStyle = {
-    ...buttonStyle,
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    color: 'white',
-    boxShadow: '0 4px 15px rgba(102, 126, 234, 0.4)',
-  } as React.CSSProperties;
-
-  const cancelButtonStyle = {
-    ...buttonStyle,
-    background: '#cbd5e0',
-    color: '#2d3748',
-  } as React.CSSProperties;
-
   return (
     <div>
       <div className="header">
-        <h1> {title}</h1>
+        <h1>{title}</h1>
       </div>
 
       <div className="container">
         <div className="card-container">
           {error && (
-            <div
-              style={{
-                background: '#fed7d7',
-                color: '#c53030',
-                padding: '12px 16px',
-                borderRadius: '8px',
-                marginBottom: '20px',
-                borderLeft: '4px solid #c53030',
-              }}
-            >
+            <div style={{
+                background: '#fed7d7', color: '#c53030', padding: '12px 16px',
+                borderRadius: '8px', marginBottom: '20px', borderLeft: '4px solid #c53030'
+            }}>
               {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit}>
-            <div style={{ marginBottom: '20px' }}>
-              <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
-                Tên sản phẩm
-              </label>
+            <div className="form-group">
+              <label className="form-label">Tên sản phẩm</label>
               <input
                 type="text"
+                className="form-control"
                 value={formData.ten}
                 onChange={(e) => setFormData({ ...formData, ten: e.target.value })}
-                style={inputStyle}
                 required
               />
             </div>
 
-            <div style={{ marginBottom: '20px' }}>
-              <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
-                Danh mục
-              </label>
+            <div className="form-group">
+              <label className="form-label">Danh mục</label>
               <select
+                className="form-control"
                 value={formData.danhMuc}
-                onChange={(e) =>
-                  setFormData({ ...formData, danhMuc: e.target.value as Category })
-                }
-                style={selectStyle}
+                onChange={(e) => setFormData({ ...formData, danhMuc: e.target.value as Category })}
               >
                 <option value="Điện tử">Điện tử</option>
                 <option value="Quần áo">Quần áo</option>
@@ -133,65 +77,41 @@ const ProductForm: React.FC<Props> = ({ initialData, onSubmit, title }) => {
               </select>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }} className="form-group">
               <div>
-                <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
-                  Giá (VND)
-                </label>
+                <label className="form-label">Giá (VND)</label>
                 <input
                   type="number"
+                  className="form-control"
                   value={formData.gia}
-                  onChange={(e) =>
-                    setFormData({ ...formData, gia: Number(e.target.value) })
-                  }
-                  style={inputStyle}
+                  onChange={(e) => setFormData({ ...formData, gia: Number(e.target.value) })}
                   required
                 />
               </div>
               <div>
-                <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
-                  Số lượng
-                </label>
+                <label className="form-label">Số lượng</label>
                 <input
                   type="number"
+                  className="form-control"
                   value={formData.soLuong}
-                  onChange={(e) =>
-                    setFormData({ ...formData, soLuong: Number(e.target.value) })
-                  }
-                  style={inputStyle}
+                  onChange={(e) => setFormData({ ...formData, soLuong: Number(e.target.value) })}
                   required
                 />
               </div>
             </div>
 
-            <div style={{ marginBottom: '20px' }}>
-              <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>
-                Mô tả
-              </label>
+            <div className="form-group">
+              <label className="form-label">Mô tả</label>
               <textarea
+                className="form-control"
                 value={formData.moTa}
                 onChange={(e) => setFormData({ ...formData, moTa: e.target.value })}
-                style={textareaStyle}
               />
             </div>
 
-            <div style={{ display: 'flex', gap: '12px' }}>
-              <button type="submit" style={submitButtonStyle} onMouseOver={(e) => {
-                (e.target as HTMLElement).style.transform = 'translateY(-2px)';
-                (e.target as HTMLElement).style.boxShadow = '0 6px 20px rgba(102, 126, 234, 0.6)';
-              }} onMouseOut={(e) => {
-                (e.target as HTMLElement).style.transform = 'translateY(0)';
-                (e.target as HTMLElement).style.boxShadow = '0 4px 15px rgba(102, 126, 234, 0.4)';
-              }}>
-                 Lưu sản phẩm
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate('/')}
-                style={cancelButtonStyle}
-              >
-                 Hủy
-              </button>
+            <div className="form-actions">
+              <button type="submit" className="btn-submit">Lưu sản phẩm</button>
+              <button type="button" onClick={() => navigate('/')} className="btn-cancel">Hủy</button>
             </div>
           </form>
         </div>
