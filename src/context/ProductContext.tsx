@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer, ReactNode } from 'react';
 import { Product, initialProducts } from '../types';
-import { productReducer, Action } from './productReducer';
+import { productReducer, Action } from './ProductReducer';
 interface ProductContextType {
   products: Product[];
   dispatch: React.Dispatch<Action>;

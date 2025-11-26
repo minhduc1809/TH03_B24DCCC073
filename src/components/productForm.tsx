@@ -42,10 +42,7 @@ const ProductForm: React.FC<Props> = ({ initialData, onSubmit, title }) => {
       <div className="container">
         <div className="card-container">
           {error && (
-            <div style={{
-                background: '#fed7d7', color: '#c53030', padding: '12px 16px',
-                borderRadius: '8px', marginBottom: '20px', borderLeft: '4px solid #c53030'
-            }}>
+            <div className="alert-error">
               {error}
             </div>
           )}
@@ -58,6 +55,7 @@ const ProductForm: React.FC<Props> = ({ initialData, onSubmit, title }) => {
                 className="form-control"
                 value={formData.ten}
                 onChange={(e) => setFormData({ ...formData, ten: e.target.value })}
+                placeholder="Nhập tên sản phẩm"
                 required
               />
             </div>
@@ -77,24 +75,26 @@ const ProductForm: React.FC<Props> = ({ initialData, onSubmit, title }) => {
               </select>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }} className="form-group">
-              <div>
+            <div className="form-grid">
+              <div className="form-group">
                 <label className="form-label">Giá (VND)</label>
                 <input
                   type="number"
                   className="form-control"
                   value={formData.gia}
                   onChange={(e) => setFormData({ ...formData, gia: Number(e.target.value) })}
+                  placeholder="0"
                   required
                 />
               </div>
-              <div>
+              <div className="form-group">
                 <label className="form-label">Số lượng</label>
                 <input
                   type="number"
                   className="form-control"
                   value={formData.soLuong}
                   onChange={(e) => setFormData({ ...formData, soLuong: Number(e.target.value) })}
+                  placeholder="0"
                   required
                 />
               </div>
@@ -106,12 +106,17 @@ const ProductForm: React.FC<Props> = ({ initialData, onSubmit, title }) => {
                 className="form-control"
                 value={formData.moTa}
                 onChange={(e) => setFormData({ ...formData, moTa: e.target.value })}
+                placeholder="Nhập mô tả sản phẩm..."
               />
             </div>
 
             <div className="form-actions">
-              <button type="submit" className="btn-submit">Lưu sản phẩm</button>
-              <button type="button" onClick={() => navigate('/')} className="btn-cancel">Hủy</button>
+              <button type="submit" className="btn-submit">
+                 Lưu sản phẩm
+              </button>
+              <button type="button" onClick={() => navigate('/')} className="btn-cancel">
+                 Hủy
+              </button>
             </div>
           </form>
         </div>
