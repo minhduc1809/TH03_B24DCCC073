@@ -1,4 +1,4 @@
-import { Product } from '../types';
+import type { Product } from '../types';
 export type Action =
   | { type: 'ADD_PRODUCT'; payload: Product }
   | { type: 'UPDATE_PRODUCT'; payload: Product }

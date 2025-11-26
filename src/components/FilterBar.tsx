@@ -1,5 +1,5 @@
 import React from 'react';
-import { Category } from '../types/index';
+import type { Category } from '../types/index';
 
 interface FilterBarProps {
   category: Category | '';

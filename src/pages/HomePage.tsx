@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useProduct } from '../context/ProductContext';
 import { Link } from 'react-router-dom';
-import { Category } from '../types';
+import type { Category } from '../types';
 import SearchBar from '../components/SearchBar';
 import FilterBar from '../components/FilterBar';
 import ProductList from '../components/ProductList';
