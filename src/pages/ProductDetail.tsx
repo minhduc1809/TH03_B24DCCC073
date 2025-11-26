@@ -21,7 +21,7 @@ const ProductDetail: React.FC = () => {
   return (
     <div>
       <div className="header">
-        <h1> Chi tiết sản phẩm</h1>
+        <h1>Chi tiết sản phẩm</h1>
       </div>
 
       <div className="container">
@@ -46,21 +46,21 @@ const ProductDetail: React.FC = () => {
               }}
             >
               <div style={{ marginBottom: '20px' }}>
-                <span style={{ color: '#718096', fontWeight: 600 }}>💰 Giá:</span>
+                <span style={{ color: '#718096', fontWeight: 600 }}>Giá:</span>
                 <div style={{ fontSize: '1.8em', color: '#667eea', fontWeight: 700, marginTop: '5px' }}>
                   {product.gia.toLocaleString('vi-VN')} VND
                 </div>
               </div>
 
               <div style={{ marginBottom: '20px' }}>
-                <span style={{ color: '#718096', fontWeight: 600 }}>📦 Số lượng kho:</span>
+                <span style={{ color: '#718096', fontWeight: 600 }}>Số lượng kho:</span>
                 <div style={{ fontSize: '1.3em', color: '#2d3748', fontWeight: 700, marginTop: '5px' }}>
                   {product.soLuong} sản phẩm
                 </div>
               </div>
 
               <div>
-                <span style={{ color: '#718096', fontWeight: 600 }}>📝 Mô tả:</span>
+                <span style={{ color: '#718096', fontWeight: 600 }}>Mô tả:</span>
                 <div style={{ fontSize: '1em', color: '#4a5568', marginTop: '5px', lineHeight: '1.6' }}>
                   {product.moTa}
                 </div>
