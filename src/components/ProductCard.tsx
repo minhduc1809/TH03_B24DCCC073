@@ -20,17 +20,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onDelete }) => {
           <p className="card-text small text-muted">Số lượng: {product.soLuong}</p>
           <p className="card-text text-truncate">{product.moTa}</p>
           
-          <div className="d-flex justify-content-between mt-3">
-            <Link to={`/products/${product.id}`} className="btn btn-info btn-sm text-white">
+          <div className="d-flex justify-content-between align-items-center mt-3">
+            <Link 
+              to={`/products/${product.id}`} 
+              className="btn btn-info text-white"
+              style={{ borderRadius: '20px', padding: '8px 20px' }}
+            >
               Chi tiết
             </Link>
-            <div>
-              <Link to={`/edit/${product.id}`} className="btn btn-info btn-sm text-white">
+            <div className="d-flex gap-2">
+              <Link 
+                to={`/edit/${product.id}`} 
+                className="btn btn-warning text-white"
+                style={{ borderRadius: '20px', padding: '8px 20px' }}
+              >
                 Sửa
               </Link>
               <button 
                 onClick={() => onDelete(product.id)} 
-                className="btn btn-info btn-sm text-white"
+                className="btn btn-danger text-white"
+                style={{ borderRadius: '20px', padding: '8px 20px' }}
               >
                 Xóa
               </button>

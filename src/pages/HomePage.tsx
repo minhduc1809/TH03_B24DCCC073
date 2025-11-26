@@ -35,42 +35,53 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="min-vh-100" style={{background: '#95caffff'}}>
-      <div className="container py-5">
-        <div className="card shadow-lg border-0 mb-4">
-          <div className="card-body p-4">
-            <div className="d-flex justify-content-between align-items-center mb-4">
-              <h1 className="h2 mb-0 text-primary">
-                <i className="bi bi-bag-check-fill"></i> Quản lý sản phẩm
-              </h1>
-              <Link to="/add" className="btn btn-primary btn-lg shadow">
-                <i className="bi bi-plus-circle"></i> Thêm mới
-              </Link>
-            </div>
+    <div>
+      <div className="header">
+        <h1> Quản lý sản phẩm</h1>
+        <p>Hệ thống quản lý sản phẩm hiện đại</p>
+      </div>
 
-            <div className="card bg-light border-0 mb-3">
-              <div className="card-body">
-                <SearchBar value={search} onChange={setSearch} />
-                <FilterBar 
-                  category={category} setCategory={setCategory}
-                  minPrice={minPrice} setMinPrice={setMinPrice}
-                  maxPrice={maxPrice} setMaxPrice={setMaxPrice}
-                />
-              </div>
-            </div>
+      <div className="container">
+        <div className="card-container">
+          <div className="toolbar">
+            <h2> Kho hàng</h2>
+            <Link to="/add" className="btn-add">
+              + Thêm sản phẩm mới
+            </Link>
+          </div>
 
-            <div className="mb-3 text-muted">
-              <i className="bi bi-info-circle"></i> Hiển thị {currentProducts.length} / {filteredProducts.length} kết quả
+          <div className="search-filter">
+            <div className="search-box">
+              <SearchBar value={search} onChange={setSearch} />
             </div>
-
-            <ProductList products={currentProducts} onDelete={handleDelete} />
-            
-            <Pagination 
-              currentPage={currentPage} 
-              totalPages={totalPages} 
-              onPageChange={setCurrentPage} 
+            <FilterBar
+              category={category}
+              setCategory={setCategory}
+              minPrice={minPrice}
+              setMinPrice={setMinPrice}
+              maxPrice={maxPrice}
+              setMaxPrice={setMaxPrice}
             />
           </div>
+          <div className="info-bar">
+              Hiển thị {currentProducts.length} / {filteredProducts.length} kết quả
+          </div>
+
+          {currentProducts.length > 0 ? (
+            <>
+              <ProductList products={currentProducts} onDelete={handleDelete} />
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+              />
+            </>
+          ) : (
+            <div className="empty-state">
+              <div className="empty-state-icon">📭</div>
+              <p>Không tìm thấy sản phẩm nào.</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
