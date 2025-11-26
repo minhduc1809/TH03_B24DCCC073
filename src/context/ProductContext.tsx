@@ -1,6 +1,12 @@
-import React, { createContext, useContext, useReducer, ReactNode } from 'react';
-import { Product, initialProducts } from '../types';
-import { productReducer, Action } from './ProductReducer';
+import React, { createContext, useContext, useReducer } from 'react';
+import type { ReactNode } from 'react';
+
+import type { Product } from '../types';
+import { initialProducts } from '../types';
+
+import { productReducer } from './ProductReducer';
+import type { Action } from './ProductReducer';
+
 interface ProductContextType {
   products: Product[];
   dispatch: React.Dispatch<Action>;
