@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product } from '../types/index';
+import  { Product } from '../types';
 import { Link } from 'react-router-dom';
 
 interface ProductCardProps {
@@ -25,12 +25,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onDelete }) => {
               Chi tiết
             </Link>
             <div>
-              <Link to={`/edit/${product.id}`} className="btn btn-warning btn-sm me-2">
+              <Link to={`/edit/${product.id}`} className="btn btn-info btn-sm text-white">
                 Sửa
               </Link>
               <button 
                 onClick={() => onDelete(product.id)} 
-                className="btn btn-danger btn-sm"
+                className="btn btn-info btn-sm text-white"
               >
                 Xóa
               </button>

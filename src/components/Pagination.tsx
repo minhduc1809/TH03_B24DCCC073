@@ -17,7 +17,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
             className="page-link" 
             onClick={() => onPageChange(currentPage - 1)}
           >
-            Previous
+            Trước
           </button>
         </li>
         
@@ -37,7 +37,7 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
             className="page-link" 
             onClick={() => onPageChange(currentPage + 1)}
           >
-            Next
+            Sau
           </button>
         </li>
       </ul>
